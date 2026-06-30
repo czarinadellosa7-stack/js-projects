@@ -19,7 +19,7 @@ async function deletePost(formData: FormData) {
   const id = formData.get("id")?.toString();
   if (!id) return;
 
-  await prisma.post.delete({
+  await prisma.post.deleteMany({
     where: { id },
   });
 }

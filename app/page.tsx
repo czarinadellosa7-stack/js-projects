@@ -7,7 +7,7 @@ async function deletePost(formData: FormData) {
   const id = formData.get("id")?.toString();
   if (!id) return;
 
-  await prisma.post.delete({
+  await prisma.post.deleteMany({
     where: { id },
   });
 }
@@ -23,7 +23,7 @@ export default async function Home() {
       title="Published Posts"
       description="Browse published posts, or add drafts and publish them later."
     >
-      <section className="space-y-4 rounded-4xl bg-white p-6 shadow-sm shadow-zinc-200">
+      <section className="space-y-4 rounded-4xl bg-purple-50/80 p-6 shadow-sm shadow-violet-200">
         {posts.length === 0 ? (
           <div className="rounded-3xl border border-dashed border-zinc-200 bg-zinc-50 p-12 text-center text-zinc-500">
             No published posts found.
